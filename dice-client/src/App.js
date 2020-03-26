@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from './components/Button';
 import * as constants from './constants';
 import * as services from './services';
 
@@ -10,6 +11,7 @@ function App() {
     fizz: "Buzz"
   })
   const [fizz, setFizz] = useState("Fizz")
+  const [diceRolls, setDiceRolls] = useState([])
 
   return (
     <div className="App">
@@ -21,16 +23,8 @@ function App() {
           You've got a D{constants.D_20} on hand right now
           <br />
           <button onClick={() => setFoo(bar.fizz)}>Click Me!</button>
-          <input onChange={(e) => setFizz(e.target.value)} type="text" placeholder="write in me" />
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Button button={constants.D_20} />
       </header>
     </div>
   );
