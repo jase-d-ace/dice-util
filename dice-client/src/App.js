@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import * as constants from './constants';
+import * as services from './services';
 
 function App() {
   const [foo, setFoo] = useState('bar')
@@ -9,6 +10,7 @@ function App() {
     fizz: "Buzz"
   })
   const [fizz, setFizz] = useState("Fizz")
+
   return (
     <div className="App">
       <header className="App-header">
