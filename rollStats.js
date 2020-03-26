@@ -5,7 +5,7 @@ const rollStatLine = diceType => [Math.ceil(Math.random() * diceType), Math.ceil
 const rollTime = (times, cb, cbArg) => {
   let holder = [];
 
-  for (let i = 0 ; i <= times ; i++) {
+  for (let i = 1 ; i <= times ; i++) {
     holder.push(cb(cbArg));
   };
 
