@@ -6,9 +6,16 @@ const rollTime = (times, cb, cbArg) => {
   let holder = [];
 
   for (let i = 1 ; i <= times ; i++) {
-    holder.push(cb(cbArg));
+    if (typeof(cb(cbArg)) == 'object') {
+      let fourVals = cb(cbArg);
+      let threeVals = fourVals.sort((a,b) => a > b);
+      const [least, ...rest] = threeVals;
+      holder.push(rest);
+    } else {
+      holder.push(cb(cbArg));
+    }
   };
-
+  console.log('final object...', holder)
   return holder;
 };
 
