@@ -24,7 +24,7 @@ function App() {
         <p>
           <code>{rollNumber === constants.DEFAULT_ROLL ? "Rolling Normally" : "Rolling at Advantage"}</code>
         </p>
-        <button onClick={() => setRollNumber(!rollNumber)}>Roll Twice</button>
+        <button onClick={() => setRollNumber(!rollNumber)}>{rollNumber ? "Roll at Advantage" : "Roll Normally"}</button>
       <Button timeRoll={advantage} button={constants.D_20} text="Roll a D20" callback={services.rollDice} setter={handleChange} />
       <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} text="Roll a new character" />
       </header>
