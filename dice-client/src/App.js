@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>{fizz}</h1>
+        <h1>{diceRolls.length > 0 ? diceRolls.join(' | ') : fizz}</h1>
         <p>
           Edit <code>{fizz}</code> and save to reload.
         </p>
