@@ -24,7 +24,8 @@ function App() {
           <br />
           <button onClick={() => setFoo(bar.fizz)}>Click Me!</button>
         </p>
-      <Button button={constants.D_20} />
+      <Button timeRoll={constants.ADVANTAGE_DISADVANTAGE} button={constants.D_20} text="Roll with Advantage" callback={services.rollDice} />
+      <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} text="Roll a new character" />
       </header>
     </div>
   );
