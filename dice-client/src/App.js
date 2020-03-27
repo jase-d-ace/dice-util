@@ -9,10 +9,13 @@ function App() {
   const [fizz, setFizz] = useState("Fizz");
   const [diceRolls, setDiceRolls] = useState([]);
   const [rollNumber, setRollNumber] = useState(constants.DEFAULT_ROLL);
+
+  // advantage roll toggle
   const advantage = rollNumber ? 1 : 2;
 
-  console.log('rendering...')
+  const buttonArray = [constants.D_20, constants.D_4, constants.D_6, constants.D_8, constants.D_10, constants.D_12];
 
+  // helper function to pass down to child component
   function handleChange(value) {
     setDiceRolls(value)
   }
@@ -25,7 +28,10 @@ function App() {
           <code>{rollNumber === constants.DEFAULT_ROLL ? "Rolling Normally" : "Rolling at Advantage"}</code>
         </p>
         <button onClick={() => setRollNumber(!rollNumber)}>{rollNumber ? "Roll at Advantage" : "Roll Normally"}</button>
-      <Button timeRoll={advantage} button={constants.D_20} text="Roll a D20" callback={services.rollDice} setter={handleChange} />
+        {
+          buttonArray.map(constant => <Button timeRoll={advantage} button={constant} text={`Roll a D${constant}`} callback={services.rollDice} setter={handleChange} />
+          )
+          }
       <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} text="Roll a new character" />
       </header>
     </div>
