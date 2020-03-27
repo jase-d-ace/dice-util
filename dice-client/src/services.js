@@ -2,7 +2,7 @@
 export const rollDice = diceType => Math.ceil(Math.random() * diceType);
 
 // roll a single die multiple times and return an array of length 4 with die rolls
-export const rollStatLine = diceType => [Math.ceil(Math.Random() * diceType), Math.ceil(Math.Random() * diceType), Math.ceil(Math.Random() * diceType), Math.ceil(Math.Random() * diceType)];
+export const rollStatLine = diceType => [Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType)];
 
 // roll a die or multiple dice at the same time
 // arguments will generally be supplied from the constants file
@@ -28,5 +28,6 @@ export const rollTime = (times, cb, cbArg) => {
       holder.push(cb(cbArg));
     };
   };
+  console.log('you rolled...', holder)
   return holder;
 };
