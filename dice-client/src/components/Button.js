@@ -1,6 +1,6 @@
 import React from 'react';
 import { rollTime } from '../services'
 
-const Button = props => <button onClick={() => rollTime(props.timeRoll, props.callback, props.button)}>{props.text}</button>
+const Button = ({ button, text, callback, setter, timeRoll }) => <button onClick={() => setter(rollTime(timeRoll, callback, button))}>{text}</button>
 
 export default Button;
