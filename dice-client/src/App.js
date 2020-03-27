@@ -6,12 +6,15 @@ import * as constants from './constants';
 import * as services from './services';
 
 function App() {
-  const [foo, setFoo] = useState('bar')
-  const [bar, setBar] = useState({
-    fizz: "Buzz"
-  })
+  // state values
   const [fizz, setFizz] = useState("Fizz")
   const [diceRolls, setDiceRolls] = useState([])
+
+  console.log('rendering...')
+
+  function handleChange(value) {
+    setDiceRolls(value)
+  }
 
   return (
     <div className="App">
@@ -19,13 +22,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>{fizz}</h1>
         <p>
-          Edit <code>{foo}</code> and save to reload.
-          You've got a D{constants.D_20} on hand right now
-          <br />
-          <button onClick={() => setFoo(bar.fizz)}>Click Me!</button>
+          Edit <code>{fizz}</code> and save to reload.
         </p>
-      <Button timeRoll={constants.ADVANTAGE_DISADVANTAGE} button={constants.D_20} text="Roll with Advantage" callback={services.rollDice} />
-      <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} text="Roll a new character" />
+      <Button timeRoll={constants.ADVANTAGE_DISADVANTAGE} button={constants.D_20} text="Roll with Advantage" callback={services.rollDice} setter={handleChange} />
+      <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} text="Roll a new character" />
       </header>
     </div>
   );
