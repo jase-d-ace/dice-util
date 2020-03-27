@@ -7,8 +7,9 @@ import * as services from './services';
 
 function App() {
   // state values
-  const [fizz, setFizz] = useState("Fizz")
-  const [diceRolls, setDiceRolls] = useState([])
+  const [fizz, setFizz] = useState("Fizz");
+  const [diceRolls, setDiceRolls] = useState([]);
+  const [rollNumber, setRollNumber] = useState(constants.DEFAULT_ROLL);
 
   console.log('rendering...')
 
@@ -24,7 +25,8 @@ function App() {
         <p>
           Edit <code>{fizz}</code> and save to reload.
         </p>
-      <Button timeRoll={constants.ADVANTAGE_DISADVANTAGE} button={constants.D_20} text="Roll with Advantage" callback={services.rollDice} setter={handleChange} />
+        <button onClick={() => setRollNumber(constants.ADVANTAGE_DISADVANTAGE)}>Roll Twice</button>
+      <Button timeRoll={rollNumber} button={constants.D_20} text="Roll a D20" callback={services.rollDice} setter={handleChange} />
       <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} text="Roll a new character" />
       </header>
     </div>
