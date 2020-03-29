@@ -28,6 +28,54 @@
   color: #61dafb;
 }
 
+.button-container {
+  display:flex;
+  flex-direction: row;
+}
+
+.dice-button {
+  height: 150px;
+  width: 160px;
+  border-radius: 35%;
+}
+
+[id="20"] {
+  background-image: url("./images/d20-option.png");
+  outline: none;
+}
+
+[id="10"] {
+  background-image: url("./images/d10.png");
+}
+
+[id="8"] {
+  background-image: url("./images/d8.png");
+}
+
+[id="12"] {
+  background-image: url("./images/d12.png");
+}
+
+[id="6"] {
+  background-image: url("./images/d6.png");
+}
+
+[id="4"] {
+  background-image: url("./images/d4.png");
+}
+
+#new-character {
+  background-image: url("./images/person.png");
+}
+
+.roll-advantage {
+  background-color: red;
+}
+
+#advantage {
+  background-image: url("./images/swords.png");
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
