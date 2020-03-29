@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import d20 from './d20.png';
 import './App.css';
 import Button from './components/Button';
 import * as constants from './constants';
@@ -6,7 +7,6 @@ import * as services from './services';
 
 function App() {
   // state values
-  const [fizz, setFizz] = useState("Fizz");
   const [diceRolls, setDiceRolls] = useState([]);
   const [rollNumber, setRollNumber] = useState(constants.DEFAULT_ROLL);
 
@@ -23,16 +23,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>{diceRolls.length > 0 ? diceRolls.join(' | ') : fizz}</h1>
+        <img src={d20} className="App-logo" alt="logo" />
+        <h1>{diceRolls.length > 0 ? diceRolls.join(' | ') : "Roll Some Dice!"}</h1>
         <p>
           <code>{rollNumber === constants.DEFAULT_ROLL ? "Rolling Normally" : "Rolling at Advantage"}</code>
         </p>
-        <button onClick={() => setRollNumber(!rollNumber)}>{rollNumber ? "Roll at Advantage" : "Roll Normally"}</button>
-        {
-          buttonArray.map(constant => <Button timeRoll={advantage} button={constant} text={`Roll a D${constant}`} callback={services.rollDice} setter={handleChange} />
-          )
+        <div className="button-container">
+          <button className={`dice-button ${rollNumber ? "" : "roll-advantage"}`} id="advantage" onClick={() => setRollNumber(!rollNumber)}></button>
+          {
+            buttonArray.map(constant => <Button timeRoll={advantage} button={constant} text="" key={constant} idVal={constant} callback={services.rollDice} setter={handleChange} />
+            )
           }
-      <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} text="Roll a new character" />
+          <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} idVal="new-character" text="" />
+        </div>
       </header>
     </div>
   );
