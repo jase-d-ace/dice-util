@@ -1,0 +1,121 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.button-container {
+  display:flex;
+  flex-direction: row;
+}
+
+.dice-button {
+  height: 150px;
+  width: 160px;
+  border-radius: 35%;
+  opacity: 0.4;
+  outline: none;
+  /* background-color: Transparent; */
+}
+
+[id="20"] {
+  background-image: url("./images/d20-option.png");
+}
+
+[id="10"] {
+  background-image: url("./images/d10.png");
+}
+
+[id="8"] {
+  background-image: url("./images/d8.png");
+}
+
+[id="12"] {
+  background-image: url("./images/d12.png");
+}
+
+[id="6"] {
+  background-image: url("./images/d6.png");
+}
+
+[id="4"] {
+  background-image: url("./images/d4.png");
+}
+
+#new-character {
+  background-image: url("./images/person.png");
+}
+
+.roll-advantage {
+  background-color: red;
+}
+
+#advantage {
+  background-image: url("./images/swords.png");
+}
+
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 667px)
+and (-webkit-device-pixel-ratio: 2)
+and (orientation: portrait) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen
+and (min-device-width: 414px)
+and (min-device-height: 736px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
