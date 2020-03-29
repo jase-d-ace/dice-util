@@ -28,6 +28,5 @@ export const rollTime = (times, cb, cbArg) => {
       holder.push(cb(cbArg));
     };
   };
-  console.log('you rolled...', holder)
   return holder;
 };
