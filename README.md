@@ -10,4 +10,8 @@ Yes, I'm still using old school `require`. I'll get around to changing it later.
 
 Used four separate files just for giggles and for `separation of concerns` because importance.
 
-Currently working on a React front end for this project; progress can be seen under the `react-refactor` branch of this repo
+~~Currently working on a React front end for this project; progress can be seen under the `react-refactor` branch of this repo~~
+
+React app has been *tentatively* finished and is now merged to `master`. It's also live [here](https://rollsomedice.surge.sh). The original node util is under `node-util`.
+
+I'll fully flesh out this readme some other time.
