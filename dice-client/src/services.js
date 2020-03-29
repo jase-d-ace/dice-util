@@ -20,6 +20,7 @@ export const rollTime = (times, cb, cbArg) => {
     if (typeof(cb(cbArg)) == 'object') {
       let threeVals = cb(cbArg).sort((a, b) => a > b);
 
+      // eslint-disable-next-line
       const [least, ...rest] = threeVals;
 
       // end result is an array of arrays of length 3 after receiving an argument of array length 4.
