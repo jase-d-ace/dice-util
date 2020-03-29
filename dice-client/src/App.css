@@ -78,6 +78,39 @@
   background-image: url("./images/swords.png");
 }
 
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 667px)
+and (-webkit-device-pixel-ratio: 2)
+and (orientation: portrait) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen
+and (min-device-width: 414px)
+and (min-device-height: 736px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
