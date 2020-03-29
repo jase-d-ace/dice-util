@@ -37,11 +37,13 @@
   height: 150px;
   width: 160px;
   border-radius: 35%;
+  opacity: 0.4;
+  outline: none;
+  /* background-color: Transparent; */
 }
 
 [id="20"] {
   background-image: url("./images/d20-option.png");
-  outline: none;
 }
 
 [id="10"] {
