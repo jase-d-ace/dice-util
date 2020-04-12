@@ -2,8 +2,20 @@
 export const rollDice = diceType => Math.ceil(Math.random() * diceType);
 
 // roll a single die multiple times and return an array of length 4 with die rolls
-export const rollStatLine = diceType => [Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType)];
+// this version of the function re-rolls any 1s that come up so that you have a little bit more luck with rolling characters
+export const rollStatLine = diceType => {
 
+  const statLine = [];
+
+  while (statLine.length < 4) {
+    const randomNumber = Math.ceil(Math.random() * diceType);
+    if (randomNumber > 1) {
+      statLine.push(randomNumber);
+    };
+  };
+
+  return statLine;
+};
 // roll a die or multiple dice at the same time
 // arguments will generally be supplied from the constants file
 /* arguments: 
