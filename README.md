@@ -14,4 +14,11 @@ Used four separate files just for giggles and for `separation of concerns` becau
 
 React app has been *tentatively* finished and is now merged to `master`. It's also live [here](https://rollsomedice.surge.sh). The original node util is under `node-util`.
 
+## Update as of 04/12/2020
+
+I've started working on separate rules for character creation. There are different iterations of the `rollStatLine` function found in `dice-client/src/services.js` in different branches on this repo.
+
+* `drop-ones` implements a rule where your stat generation will never include a 1.
+* `drop-sevens` adds up the total number after rolling 4d6-drop-lowest, and re-rolls any totals less than 7.
+
 I'll fully flesh out this readme some other time.
