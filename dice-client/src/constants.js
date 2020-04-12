@@ -10,13 +10,3 @@ export const D_12 = 12;
 export const STAT_GENERATION_LOOP = 6;
 export const DEFAULT_ROLL = true;
 
-// module.exports = {
-//   D_20,
-//   D_4,
-//   D_6,
-//   D_8,
-//   D_10,
-//   D_12,
-//   STAT_GENERATION_LOOP,
-//   ADVANTAGE_DISADVANTAGE
-// };
