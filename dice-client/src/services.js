@@ -42,7 +42,7 @@ export const rollTime = (times, cb, cbArg) => {
       let tempArray = [];
       let found = false;
 
-      while (found === false) {
+      while (!found) {
         if (checkSeven(tempTotal)) {
           tempArray.push(rest);
           found = true;
