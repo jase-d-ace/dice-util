@@ -11,6 +11,21 @@ export const rollStatLine = diceType => [Math.ceil(Math.random() * diceType), Ma
  * cb: callback function dictating whether to roll a single die, or a series of d6
  * cbArg: the type of die rolled
 */
+
+const checkSeven = (num) => num > 7;
+
+const reRoll = (newArr) => {
+  let newStatLine = [rollDice(6), rollDice(6), rollDice(6), rollDice(6)].sort((a, b) => a > b);
+  //eslint-disable-next-line
+  const [least, ...highest] = newStatLine;
+  const temp = highest.reduce((a, b) => a + b, 0);
+  if (checkSeven(temp)) {
+    newArr.push(highest);
+    return true;
+  }
+  return false;
+}
+
 export const rollTime = (times, cb, cbArg) => {
   // empty array to hold values
   let holder = [];
@@ -22,9 +37,21 @@ export const rollTime = (times, cb, cbArg) => {
 
       // eslint-disable-next-line
       const [least, ...rest] = threeVals;
+      
+      let tempTotal = rest.reduce((a, b) => a + b, 0);
+      let tempArray = [];
+      let found = false;
 
+      while (found === false) {
+        if (checkSeven(tempTotal)) {
+          tempArray.push(rest);
+          found = true;
+        } else {
+          found = reRoll(tempArray);
+        }
+      }
       // end result is an array of arrays of length 3 after receiving an argument of array length 4.
-      holder.push(rest);
+      holder.push(tempArray);
     } else { // when rolling at (dis)advantage, simply roll twice and return the results
       holder.push(cb(cbArg));
     };
