@@ -8,7 +8,7 @@ Button.propTypes = {
   button: PropTypes.number,
   text: PropTypes.string,
   setter: PropTypes.func.isRequired,
-  idVal: PropTypes.string,
+  idVal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   callback: PropTypes.func.isRequired,
   timeRoll: PropTypes.number
 }
