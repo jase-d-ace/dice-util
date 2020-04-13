@@ -19,17 +19,18 @@ const reRoll = (newArr) => {
   return checkRolls(highest, newArr);
 };
 
-
 // bias function that decides whether an array is acceptable (i.e. has a total greater than 7)
 // arr is an array of numbers
 // holder is an empty array to hold acceptable values
 // return value is true if the array is acceptable, and false means it will need to run again
 const checkRolls = (arr, holder) => {
   const sum = arr.reduce((a, b) => a + b, 0);
+
   if (checkSeven(sum)) {
     holder.push(arr);
     return true;
   }
+
   return false;
 };
 
@@ -53,7 +54,9 @@ export const rollTime = (times, cb, cbArg) => {
       // eslint-disable-next-line
       const [least, ...rest] = threeVals;
       
-      // empty boolean value that is false initially
+      // check to see if this iteration holds a value greater than 7
+      // if this iteration is greater than 7, push it straight into the holder and move on
+      // if not, the function will not continue until it rolls 3 numbers that add to more than 7
       let found = checkRolls(rest, holder);
 
       while (!found) {
