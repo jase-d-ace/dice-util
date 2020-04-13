@@ -21,4 +21,7 @@ I've started working on separate rules for character creation. There are differe
 * `drop-ones` implements a rule where your stat generation will never include a 1.
 * `drop-sevens` adds up the total number after rolling 4d6-drop-lowest, and re-rolls any totals less than 7.
 
-I'll fully flesh out this readme some other time.
+### Update EOD 04/12/2020:
+I've decided that I really like the `drop-sevens` logic a lot. So it's been merged into master as well. It is now the default rule to drop any stat lower than 7.
+
+~~I'll fully flesh out this readme some other time.~~ I guess "some other time" has already happened.
