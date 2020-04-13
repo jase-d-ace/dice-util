@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import d20 from './d20.png';
+import d20 from './images/d20.png';
 import './App.css';
 import Button from './components/Button';
 import * as constants from './constants';
