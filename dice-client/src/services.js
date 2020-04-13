@@ -64,6 +64,5 @@ export const rollTime = (times, cb, cbArg) => {
       holder.push(cb(cbArg));
     };
   };
-  console.log(holder)
   return holder;
 };
