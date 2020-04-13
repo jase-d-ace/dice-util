@@ -3,7 +3,7 @@ import d20 from './images/d20.png';
 import './App.css';
 import Button from './components/Button';
 import * as constants from './constants';
-import * as services from './services';
+import { rollDice, rollStatLine } from './services';
 
 function App() {
   // state values
@@ -32,10 +32,10 @@ function App() {
           <button className={`dice-button ${rollNumber ? "" : "roll-advantage"}`} id="advantage" onClick={() => setRollNumber(!rollNumber)}></button>
           {
             buttonArray.map(
-              constant => <Button timeRoll={advantage} button={constant} text="" key={constant} idVal={constant} callback={services.rollDice} setter={handleChange} />
+              constant => <Button timeRoll={advantage} button={constant} text="" key={constant} idVal={constant} callback={rollDice} setter={handleChange} />
             )
           }
-          <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} idVal="new-character" text="" />
+          <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={rollStatLine} setter={handleChange} idVal="new-character" text="" />
         </div>
       </header>
     </div>
