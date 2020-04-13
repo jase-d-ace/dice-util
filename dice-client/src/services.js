@@ -12,15 +12,31 @@ export const rollStatLine = diceType => [Math.ceil(Math.random() * diceType), Ma
  * cbArg: the type of die rolled
 */
 
+
+// helper function to check if a number is greater than 7
+// in context, this is to see if a player has rolled less than 7 on any given stat
+// it's meant to take out these rolls and allow a "reroll" for any stat that would end up being really bad
 const checkSeven = (num) => num > 7;
 
+// function that runs the dice-rolling generator again and calls the check function
 const reRoll = (newArr) => {
-  let newStatLine = [rollDice(6), rollDice(6), rollDice(6), rollDice(6)].sort((a, b) => a > b);
+  let newStatLine = rollStatLine(6).sort((a, b) => a > b);
+  
   //eslint-disable-next-line
   const [least, ...highest] = newStatLine;
-  const temp = highest.reduce((a, b) => a + b, 0);
-  if (checkSeven(temp)) {
-    newArr.push(highest);
+
+  return checkRolls(highest, newArr);
+}
+
+
+// bias function that decides whether an array is acceptable (i.e. has a total greater than 7)
+// arr is an array of numbers
+// holder is an empty array to hold acceptable values
+// return value is true if the array is acceptable, and false means it will need to run again
+const checkRolls = (arr, holder) => {
+  const sum = arr.reduce((a, b) => a + b, 0);
+  if (checkSeven(sum)) {
+    holder.push(arr);
     return true;
   }
   return false;
@@ -38,20 +54,14 @@ export const rollTime = (times, cb, cbArg) => {
       // eslint-disable-next-line
       const [least, ...rest] = threeVals;
       
-      let tempTotal = rest.reduce((a, b) => a + b, 0);
-      let tempArray = [];
-      let found = false;
+      // empty boolean value that is false initially
+      let found = checkRolls(rest, holder);
 
       while (!found) {
-        if (checkSeven(tempTotal)) {
-          tempArray.push(rest);
-          found = true;
-        } else {
-          found = reRoll(tempArray);
-        }
+        found = reRoll(holder);
       }
       // end result is an array of arrays of length 3 after receiving an argument of array length 4.
-      holder.push(tempArray);
+      holder.push(holder);
     } else { // when rolling at (dis)advantage, simply roll twice and return the results
       holder.push(cb(cbArg));
     };
