@@ -14,6 +14,15 @@ Used four separate files just for giggles and for `separation of concerns` becau
 
 React app has been *tentatively* finished and is now merged to `master`. It's also live [here](https://rollsomedice.surge.sh). The original node util is under `node-util`.
 
+## Installation Instructions
+
+It's probably important to have installation instructions if by some miracle people see this and feel like "hey, this is kinda going in vaguely the right direction, let me nudge it forward."
+
+1. Fork/clone to your machine 
+2. `cd dice-client`
+3. `npm install`
+4. `npm start`
+
 ## Update as of 04/12/2020
 
 I've started working on separate rules for character creation. There are different iterations of the `rollStatLine` function found in `dice-client/src/services.js` in different branches on this repo.
