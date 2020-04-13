@@ -2,7 +2,7 @@
 export const rollDice = diceType => Math.ceil(Math.random() * diceType);
 
 // roll a single die multiple times and return an array of length 4 with die rolls
-export const rollStatLine = diceType => [Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType), Math.ceil(Math.random() * diceType)];
+export const rollStatLine = diceType => [rollDice(diceType), rollDice(diceType), rollDice(diceType), rollDice(diceType)];
 
 // helper function to check if a number is greater than 7
 // in context, this is to see if a player has rolled less than 7 on any given stat
