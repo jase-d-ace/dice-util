@@ -31,7 +31,8 @@ function App() {
         <div className="button-container">
           <button className={`dice-button ${rollNumber ? "" : "roll-advantage"}`} id="advantage" onClick={() => setRollNumber(!rollNumber)}></button>
           {
-            buttonArray.map(constant => <Button timeRoll={advantage} button={constant} text="" key={constant} idVal={constant} callback={services.rollDice} setter={handleChange} />
+            buttonArray.map(
+              constant => <Button timeRoll={advantage} button={constant} text="" key={constant} idVal={constant} callback={services.rollDice} setter={handleChange} />
             )
           }
           <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={services.rollStatLine} setter={handleChange} idVal="new-character" text="" />
