@@ -91,8 +91,25 @@ export const rollTime = (times, cb, cbArg) => {
   return holder;
 };
 
+/**
+ * event handler to change state
+ *
+ * @name handleInputChange
+ * @function
+ * @param {function} cb callback to handle state change
+ * @param {string} val string to set state
+ */
 export const handleInputChange = (cb, val) => (_.debounce(() => cb(val), 70))()
 
+/**
+ * event handler to submit a form
+ *
+ * @name handleFormSubmit
+ * @function
+ * @param {object} e event object
+ * @param {string} query name of monster being searched
+ * @param {function} callback callback that processes incoming data from the api
+ */
 export const handleFormSubmit = (e, query, callback) => {
   e.preventDefault();
 
