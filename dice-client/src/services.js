@@ -1,3 +1,4 @@
+import _ from 'underscore';
 /**
  * roll a die of any type
  *
@@ -83,10 +84,25 @@ export const rollTime = (times, cb, cbArg) => {
       while (!found) {
         found = reRoll(holder);
       }
-      // end result is an array of arrays of length 3 after receiving an argument of array length 4.
     } else { // when rolling at (dis)advantage, simply roll twice and return the results
       holder.push(cb(cbArg));
     };
   };
   return holder;
 };
+
+export const handleInputChange = (cb, val) => (_.debounce(() => cb(val), 70))()
+
+export const handleFormSubmit = (e, query, callback) => {
+  e.preventDefault();
+
+  let wordsArray = query.split(' ');
+  let cleanQuery = wordsArray.join('-');
+
+  fetch(`https://api.open5e.com/monsters/${cleanQuery}/?format=json`)
+    .then( data => data.json() )
+    .then( json => callback(json) )
+    .catch( err => console.log(err) );
+  e.target.reset();
+};
+
