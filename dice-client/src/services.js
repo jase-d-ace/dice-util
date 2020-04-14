@@ -1,15 +1,33 @@
-// roll a single die of any type and return the result
+/**
+ * roll a die of any type
+ *
+ * @param {number} diceType the size of the die you rolled
+ * @returns {number} the number you rolled on your die
+ */
 export const rollDice = diceType => Math.ceil(Math.random() * diceType);
 
-// roll a single die multiple times and return an array of length 4 with die rolls
+/**
+ * return an array of random numbers between 1 and your number (i.e. your dice)
+ *
+ * @param {number} diceType the size of the dice you roll
+ * @returns {array} array of numbers between 1 and your dice type
+ */
 export const rollStatLine = diceType => [rollDice(diceType), rollDice(diceType), rollDice(diceType), rollDice(diceType)];
 
-// helper function to check if a number is greater than 7
-// in context, this is to see if a player has rolled less than 7 on any given stat
-// it's meant to take out these rolls and allow a "reroll" for any stat that would end up being really bad
+/**
+ * Check if a number is greater than 7
+ *
+ * @param {number} num number to compare against 7
+ * @returns {boolean} returns true if the number is greater than 7
+ */
 const checkSeven = (num) => num > 7;
 
-// function that runs the dice-rolling generator again and calls the check function
+/**
+ * redo the roll algorithm
+ *
+ * @param {array} newArr holder array that eventually holds acceptable arrays that total over 7
+ * @returns {boolean} returns true if it finds an acceptable array to push into a holder
+ */
 const reRoll = (newArr) => {
   let newStatLine = rollStatLine(6).sort((a, b) => a > b);
   
@@ -19,10 +37,13 @@ const reRoll = (newArr) => {
   return checkRolls(highest, newArr);
 };
 
-// bias function that decides whether an array is acceptable (i.e. has a total greater than 7)
-// arr is an array of numbers
-// holder is an empty array to hold acceptable values
-// return value is true if the array is acceptable, and false means it will need to run again
+/**
+ * take an array of numbers, add them together, and keep the array if the total is over 7
+ *
+ * @param {array} arr array of numbers to add together to check the sum
+ * @param {array} holder holder array to return numbers if they are acceptable
+ * @returns {boolean} returns true and pushes numbers into an array if they total more than 7, returns false otherwise
+ */
 const checkRolls = (arr, holder) => {
   const sum = arr.reduce((a, b) => a + b, 0);
 
@@ -34,14 +55,14 @@ const checkRolls = (arr, holder) => {
   return false;
 };
 
-// roll a die or multiple dice at the same time
-// arguments will generally be supplied from the constants file
-/* arguments: 
- * times: generally will either be 2 or 6, depending on reason to roll multiple times. 2 for advantage, 6 for character stat generation
- * cb: callback function dictating whether to roll a single die, or a series of d6
- * cbArg: the type of die rolled
-*/
-
+/**
+ * roll dice multiple times
+ *
+ * @param {number} times number of times you roll dice
+ * @param {function} cb callback that rolls either an array or just a number
+ * @param {number} cbArg number representing the type of die rolled
+ * @returns {array} results from rolling dice
+ */
 export const rollTime = (times, cb, cbArg) => {
   // empty array to hold values
   let holder = [];
