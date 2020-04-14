@@ -15,7 +15,13 @@ function App() {
 
   const buttonArray = [constants.D_20, constants.D_4, constants.D_6, constants.D_8, constants.D_10, constants.D_12];
 
-  // helper function to pass down to child component
+  /**
+   * helper function to pass setDiceRolls as a prop
+   *
+   * @name handleChange
+   * @function
+   * @param {array} value array that becomes state
+   */
   function handleChange(value) {
     setDiceRolls(value)
   }
