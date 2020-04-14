@@ -7,6 +7,28 @@
   pointer-events: none;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 7.7vh;
+}
+
+.monster-search {
+  margin: 0 auto;
+  width: 75%;
+  height: 60%;
+  justify-content: center;
+}
+
+.monster-search input {
+  width: 24%;
+  height: 100%;
+  border-radius: 4px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -76,6 +98,16 @@
 
 #advantage {
   background-image: url("./images/swords.png");
+}
+
+.results-container {
+  height: 30vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+
+.results-container::-webkit-scrollbar {
+  display: none;
 }
 
 @media only screen
