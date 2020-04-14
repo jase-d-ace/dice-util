@@ -1,3 +1,4 @@
+import _ from 'underscore';
 /**
  * roll a die of any type
  *
@@ -83,10 +84,42 @@ export const rollTime = (times, cb, cbArg) => {
       while (!found) {
         found = reRoll(holder);
       }
-      // end result is an array of arrays of length 3 after receiving an argument of array length 4.
     } else { // when rolling at (dis)advantage, simply roll twice and return the results
       holder.push(cb(cbArg));
     };
   };
   return holder;
 };
+
+/**
+ * event handler to change state
+ *
+ * @name handleInputChange
+ * @function
+ * @param {function} cb callback to handle state change
+ * @param {string} val string to set state
+ */
+export const handleInputChange = (cb, val) => (_.debounce(() => cb(val), 70))() //IIFE that debounces a state change every 70ms
+
+/**
+ * event handler to submit a form
+ *
+ * @name handleFormSubmit
+ * @function
+ * @param {object} e event object
+ * @param {string} query name of monster being searched
+ * @param {function} callback callback that processes incoming data from the api
+ */
+export const handleFormSubmit = (e, query, callback) => {
+  e.preventDefault();
+
+  let wordsArray = query.split(' ');
+  let cleanQuery = wordsArray.join('-');
+
+  fetch(`https://api.open5e.com/monsters/${cleanQuery}/?format=json`)
+    .then( data => data.json() )
+    .then( json => callback(json) )
+    .catch( err => console.log(err) );
+  e.target.reset();
+};
+
