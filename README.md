@@ -33,4 +33,7 @@ I've started working on separate rules for character creation. There are differe
 ### Update EOD 04/12/2020:
 I've decided that I really like the `drop-sevens` logic a lot. So it's been merged into master as well. It is now the default rule to drop any stat lower than 7.
 
+## Update as of 04/14/2020
+New functionality in the works to hit a free D&D 5e API as a sort of bestiary. Work is currently under the `routing` branch. Data will probably be very incomplete since it only hits the SRD and not the entire PHB, which makes sense. If the PHB were readily available online for free, then there wouldn't be a point to charge for it. So anything you can find in the SRD will be avaiable on this app on a new route.
+
 ~~I'll fully flesh out this readme some other time.~~ I guess "some other time" has already happened.
