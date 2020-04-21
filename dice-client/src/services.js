@@ -141,9 +141,11 @@ export const handleFormSubmit = (e, query, callback) => {
 };
 
 export const handleInitiativeOrder = (e, callback, cbArg) => {
-  e.preventDefault();
+  if (e != null) {
+    e.preventDefault();
+    e.target.reset();
+  }
   callback(cbArg);
-  e.target.reset();
 }
 
 /**
@@ -158,15 +160,13 @@ export const handleInitiativeOrder = (e, callback, cbArg) => {
 export const reducer = (state, action) => {
   const { type, character } = action;
   switch(type) {
-    case "add":
+    case "add": //adds character to initiative, returns sorted in descending order
       const temp = [...state, {charName: character.charName, initiative: Number(character.initiative)}];
       return _.sortBy(temp, 'initiative').reverse();
-    case "remove":
-      console.log('removing a thing');
-      const newState = _.omit(state, action.character);
+    case "remove": // removes character from initiative order
+      const newState = _.reject(state, char => action.character.charName === char.charName);
       return [...newState];
     default: 
-      console.log('not doing anything', action, state);
       return state;
   }
 }
