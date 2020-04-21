@@ -1,5 +1,6 @@
 import React, { useState, useReducer } from 'react';
-import helmet from '../images/helmet.png'
+import NamePlate from './NamePlate';
+import helmet from '../images/helmet.png';
 import { handleFormChange, reducer, handleInitiativeOrder } from '../services';
 
 
@@ -15,8 +16,9 @@ function Initiatives() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={helmet} className="App-logo" alt="logo" />
-        <h1>Let's Play</h1>
+        {order.length ? <ul>{order.map(char => <NamePlate char={char} />)}</ul> : (<img src={helmet} className="App-logo" alt="logo" />)
+        }
+        <h1>Sort Initiatives!</h1>
         <div className="form-container">
           <form className="monster-search" onSubmit={(e)=>handleInitiativeOrder(e, setOrder, {character, type: "add"})}>
             <input type="text" name="charName" required placeholder="name of character" onChange={(e) => handleFormChange(setCharacter, e, character)} />
