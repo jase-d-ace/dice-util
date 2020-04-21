@@ -16,7 +16,7 @@ function Initiatives() {
   return (
     <div className="App">
       <header className="App-header">
-        {order.length ? <ul>{order.map(char => <NamePlate char={char} />)}</ul> : (<img src={helmet} className="App-logo" alt="logo" />)
+        {order.length ? <ul>{order.map((char, i) => <NamePlate setOrder={setOrder} key={i} char={char} />)}</ul> : (<img src={helmet} className="App-logo" alt="logo" />)
         }
         <h1>Sort Initiatives!</h1>
         <div className="form-container">
