@@ -140,6 +140,15 @@ export const handleFormSubmit = (e, query, callback) => {
   e.target.reset();
 };
 
+/**
+ * event handler that takes an optional event and process initiative changes
+ *
+ * @name handleInitiativeOrder
+ * @function
+ * @param {object} e optional event object that comes from submitting a form
+ * @param {function} callback hook that sets state
+ * @param {object} cbArg contains information about action type and character
+ */
 export const handleInitiativeOrder = (e, callback, cbArg) => {
   if (e != null) {
     e.preventDefault();
