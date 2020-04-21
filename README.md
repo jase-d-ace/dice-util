@@ -39,4 +39,7 @@ New functionality in the works to hit a free D&D 5e API as a sort of bestiary. W
 ### EOD 04/14/2020:
 Searching the SRD has been merged to `master`. Yay.
 
+## Update as of 04/21/2020
+More inspiration has struck. Now working on an initiatives list. Branch is named `initiatives`
+
 ~~I'll fully flesh out this readme some other time.~~ I guess "some other time" has already happened.
