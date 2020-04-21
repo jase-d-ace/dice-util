@@ -156,10 +156,11 @@ export const handleInitiativeOrder = (e, callback, cbArg) => {
  * @returns {object} new state returned after changes
  */
 export const reducer = (state, action) => {
-  switch(action.type) {
+  const { type, character } = action;
+  switch(type) {
     case "add":
-      console.log('adding a thing');
-      return [...state, action.character];
+      const temp = [...state, {charName: character.charName, initiative: Number(character.initiative)}];
+      return _.sortBy(temp, 'initiative').reverse();
     case "remove":
       console.log('removing a thing');
       const newState = _.omit(state, action.character);
