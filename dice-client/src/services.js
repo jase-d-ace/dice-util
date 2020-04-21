@@ -140,3 +140,32 @@ export const handleFormSubmit = (e, query, callback) => {
   e.target.reset();
 };
 
+export const handleInitiativeOrder = (e, callback, cbArg) => {
+  e.preventDefault();
+  callback(cbArg);
+  e.target.reset();
+}
+
+/**
+ * redux-style reducer to mutate state in different ways
+ *
+ * @name reducer
+ * @function
+ * @param {object} state state object being updated
+ * @param {object} action type to dictate what action to take, character in question
+ * @returns {object} new state returned after changes
+ */
+export const reducer = (state, action) => {
+  switch(action.type) {
+    case "add":
+      console.log('adding a thing');
+      return [...state, action.character];
+    case "remove":
+      console.log('removing a thing');
+      const newState = _.omit(state, action.character);
+      return [...newState];
+    default: 
+      console.log('not doing anything', action, state);
+      return state;
+  }
+}
