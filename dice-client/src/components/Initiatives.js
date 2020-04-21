@@ -23,7 +23,7 @@ function Initiatives() {
           <form className="monster-search" onSubmit={(e)=>handleInitiativeOrder(e, setOrder, {character, type: "add"})}>
             <input type="text" name="charName" required placeholder="name of character" onChange={(e) => handleFormChange(setCharacter, e, character)} />
             <input type="number" name="initiative" onChange={(e) => handleFormChange(setCharacter, e, character)} required min="0" max="30" placeholder="initiative" step="1" />
-            <input type="submit" value="search!" />
+            <input type="submit" value="Add to Initiative!" />
           </form>
         </div>
       </header>
