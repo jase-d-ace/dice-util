@@ -102,6 +102,23 @@ export const rollTime = (times, cb, cbArg) => {
 export const handleInputChange = (cb, val) => (_.debounce(() => cb(val), 70))() //IIFE that debounces a state change every 70ms
 
 /**
+ * event handler to handle nested object state
+ *
+ * @name handleFormChange
+ * @function
+ * @param {function} cb callback to handle state change
+ * @param {object} e event object
+ * @param {object} state state object being updated
+ */
+export const handleFormChange = (cb, e, state) => {
+  const { name, value } = e.target;
+  cb({
+    ...state,
+    [name]: value
+  })
+}
+
+/**
  * event handler to submit a form
  *
  * @name handleFormSubmit
