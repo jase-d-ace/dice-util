@@ -130,7 +130,7 @@ export const handleFormChange = (cb, e, state) => {
 export const handleFormSubmit = (e, query, callback) => {
   e.preventDefault();
 
-  let wordsArray = query.split(' ');
+  let wordsArray = query.toLowerCase().split(' ');
   let cleanQuery = wordsArray.join('-');
 
   fetch(`https://api.open5e.com/monsters/${cleanQuery}/?format=json`)
