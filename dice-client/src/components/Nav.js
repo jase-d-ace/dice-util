@@ -6,6 +6,7 @@ function Nav() {
     <nav className="nav">
       <li className="link"><Link to="/">Dice</Link></li>
       <li className="link"><Link to="/search">Monsters</Link></li>
+      <li className="link"><Link to="/initiatives">Initiatives</Link></li>
     </nav>
   );
 };
