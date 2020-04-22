@@ -1,0 +1,17 @@
+{
+  "name": "dice-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource": "^0.7.0",
+    "apollo-server": "^2.12.0",
+    "graphql": "^15.0.0"
+  }
+}
