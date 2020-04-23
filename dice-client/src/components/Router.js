@@ -4,6 +4,7 @@ import App from '../App';
 import Search from './Search';
 import Initiatives from './Initiatives';
 import Nav from './Nav';
+import NoteQuery from './NoteQuery';
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
         <Route exact path="/" component={App} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/initiatives" component={Initiatives} />
+        <Route exact path="/notes" component={NoteQuery} />
       </Switch>
     </BrowserRouter>
   );
