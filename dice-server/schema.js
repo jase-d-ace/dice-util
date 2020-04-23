@@ -6,8 +6,9 @@ const typeDefs = gql`
     note(author: String): Note
   }
   type Note {
+    id: Int
     title: String
-    text: String
+    content: String
     author: String
     }
 `;
