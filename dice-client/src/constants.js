@@ -1,3 +1,4 @@
+import { gql } from 'apollo-boost';
 //dice declarations
 export const D_20 = 20;
 export const D_4 = 4;
@@ -9,4 +10,15 @@ export const D_12 = 12;
 // reasons to roll multiple times
 export const STAT_GENERATION_LOOP = 6;
 export const DEFAULT_ROLL = true;
+
+export const ALL_NOTES = gql`
+  {
+    notes {
+      id
+      title
+      content
+      author
+      }
+  }
+`
 
