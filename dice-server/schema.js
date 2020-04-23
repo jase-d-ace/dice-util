@@ -4,6 +4,7 @@ const typeDefs = gql`
   type Query {
     notes: [Note]
     note(author: String): Note
+    notesByAuthor(author: String): [Note]
   }
   type Note {
     id: Int
