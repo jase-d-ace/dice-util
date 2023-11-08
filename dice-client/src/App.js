@@ -26,11 +26,21 @@ function App() {
     setDiceRolls(value)
   }
 
+  /**
+   * helper function to add stat-line dice rolls instead of individual values
+   * 
+   * @name sumStatNumbers
+   * @param {array} arr array that gets summed
+   */
+  function sumStatNumbers(arr) {
+    return arr.map(subArr => subArr.reduce((agg, rec) => agg += rec), 0)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={d20} className="App-logo" alt="logo" />
-        <h1>{diceRolls.length > 0 ? diceRolls.join(' | ') : "Roll Some Dice!"}</h1>
+        <h1>{diceRolls.length > 0 ? diceRolls.length == 6 ? sumStatNumbers(diceRolls).join(' | ') : diceRolls.join(' | ') : "Roll Some Dice!"}</h1>
         <p>
           <code>{rollNumber === constants.DEFAULT_ROLL ? "Rolling Normally" : "Rolling at Advantage"}</code>
         </p>
