@@ -6,10 +6,10 @@ Needed a bunch of D6s to build a new character, but I didn't have a whole bunch 
 
 So I figured why not build an entire dice util. 3 functions total, a bunch of constants so that I don't have to continually replace values everywhere just in case by some miracle I decide to expand this.
 
-React app has been *tentatively* finished and is now merged to `master`. It's also live [here](https://rollsomedice.surge.sh). The original node util is under `node-util`.
+React app has been *tentatively* finished and is now merged to `main`. It's also live [here](https://rollsomedice.surge.sh). The original node util is under the branch `node-util`.
 
 ## Feature List
-> Features listed here have also already been merged to `master`, but separate branches have been listed anyway for clarity and tracking purposes
+> Features listed here have also already been merged to `main`, but separate branches have been listed anyway for clarity and tracking purposes
 
 * Stat-rolling algorithm re-rolls any result less than 7 (04/12/2020). Branch: `drop-sevens`
 * Open route for searching the free 5e SRD via [this API](https://api.open5e.com) (04/14/2020). Branch: `routing`
