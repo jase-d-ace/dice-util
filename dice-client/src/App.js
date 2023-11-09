@@ -16,21 +16,11 @@ function App() {
   const buttonArray = [constants.D_20, constants.D_4, constants.D_6, constants.D_8, constants.D_10, constants.D_12];
 
   /**
-   * helper function to pass setDiceRolls as a prop
-   *
-   * @name handleChange
-   * @function
-   * @param {array} value array that becomes state
-   */
-  function handleChange(value) {
-    setDiceRolls(value)
-  }
-
-  /**
    * helper function to add stat-line dice rolls instead of individual values
+   * since diceRolls is an array of arrays, this function uses two iterators to return an array of numbers instead
    * 
    * @name sumStatNumbers
-   * @param {array} arr array that gets summed
+   * @param {array} arr array of arrays that get individually summed
    */
   function sumStatNumbers(arr) {
     return arr.map(subArr => subArr.reduce((agg, rec) => agg += rec), 0)
@@ -40,7 +30,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={d20} className="App-logo" alt="logo" />
-        <h1>{diceRolls.length > 0 ? diceRolls.length == 6 ? sumStatNumbers(diceRolls).join(' | ') : diceRolls.join(' | ') : "Roll Some Dice!"}</h1>
+        <h1>{diceRolls.length > 0 ? diceRolls.length === 6 ? sumStatNumbers(diceRolls).join(' | ') : diceRolls.join(' | ') : "Roll Some Dice!"}</h1>
         <p>
           <code>{rollNumber === constants.DEFAULT_ROLL ? "Rolling Normally" : "Rolling at Advantage"}</code>
         </p>
@@ -48,10 +38,10 @@ function App() {
           <button className={`dice-button ${rollNumber ? "" : "roll-advantage"}`} id="advantage" onClick={() => setRollNumber(!rollNumber)}></button>
           {
             buttonArray.map(
-              constant => <Button timeRoll={advantage} button={constant} text="" key={constant} idVal={constant} callback={rollDice} setter={handleChange} />
+              constant => <Button timeRoll={advantage} button={constant} text="" key={constant} idVal={constant} callback={rollDice} setter={setDiceRolls} />
             )
           }
-          <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={rollStatLine} setter={handleChange} idVal="new-character" text="" />
+          <Button timeRoll={constants.STAT_GENERATION_LOOP} button={constants.D_6} callback={rollStatLine} setter={setDiceRolls} idVal="new-character" text="" />
         </div>
       </header>
     </div>
