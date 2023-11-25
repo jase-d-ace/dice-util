@@ -1,190 +1,185 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .nav {
-  background-color: #141821;
-  list-style-type: none;
-  height: 7vh;
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
+    background-color: #141821;
+    list-style-type: none;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
 }
 
 .button {
-  background-color: #141821; 
-  border: none;
-  color: white;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 5px;
-  outline: none;
+    background-color: #141821;
+    border: none;
+    color: white;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
 }
 
 .nameplate {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .link {
-  display: inline;
-  margin: auto;
-  justify-content: space-between;
+    display: inline;
+    margin: auto;
+    justify-content: space-between;
 }
 
 a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 7.7vh;
+    width: 25em;
+    height: 10em;
+}
+
+.search-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .monster-search {
-  margin: 0 auto;
-  width: 75%;
-  height: 60%;
-  justify-content: center;
+    margin: 0 auto;
+    input {
+        height: 3em;
+        width: 20em;
+        border-radius: 4px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .submit {
+        margin-left: 0.5em;
+        width: 7em;
+    }
 }
 
-.monster-search input {
-  width: 24%;
-  height: 100%;
-  border-radius: 4px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 93vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.button-container {
-  display:flex;
-  flex-direction: row;
-}
-
-.dice-button {
-  height: 150px;
-  width: 160px;
-  border-radius: 35%;
-  opacity: 0.4;
-  outline: none;
-}
-
-[id="20"] {
-  background-image: url("./images/d20-option.png");
-}
-
-[id="10"] {
-  background-image: url("./images/d10.png");
-}
-
-[id="8"] {
-  background-image: url("./images/d8.png");
-}
-
-[id="12"] {
-  background-image: url("./images/d12.png");
-}
-
-[id="6"] {
-  background-image: url("./images/d6.png");
-}
-
-[id="4"] {
-  background-image: url("./images/d4.png");
-}
-
-#new-character {
-  background-image: url("./images/person.png");
-}
-
-.roll-advantage {
-  background-color: red;
-}
-
-#advantage {
-  background-image: url("./images/swords.png");
+.header {
+    font-weight: bold;
+    font-size: 48px;
 }
 
 .results-container {
-  height: 22vh;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
+    height: 20em;
+    width: 10em;
+    overflow-y: scroll;
+    
 }
 
-.results-container::-webkit-scrollbar {
-  display: none;
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
-@media only screen
-and (min-device-width: 375px)
-and (min-device-height: 812px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-  .button-container {
+.App-header {
+    background-color: #282c34;
+    min-height: 93vh;
     display: flex;
     flex-direction: column;
-  }
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
-@media only screen
-and (min-device-width: 375px)
-and (min-device-height: 667px)
-and (-webkit-device-pixel-ratio: 2)
-and (orientation: portrait) {
-  .button-container {
-    display: flex;
-    flex-direction: column;
-  }
+.App-link {
+    color: #61dafb;
 }
 
-@media only screen
-and (min-device-width: 414px)
-and (min-device-height: 736px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-  .button-container {
+.button-container {
     display: flex;
-    flex-direction: column;
-  }
+    flex-direction: row;
+}
+
+.dice-button {
+    height: 150px;
+    width: 160px;
+    border-radius: 35%;
+    opacity: 0.4;
+    outline: none;
+}
+
+[id="20"] {
+    background-image: url("./images/d20-option.png");
+}
+
+[id="10"] {
+    background-image: url("./images/d10.png");
+}
+
+[id="8"] {
+    background-image: url("./images/d8.png");
+}
+
+[id="12"] {
+    background-image: url("./images/d12.png");
+}
+
+[id="6"] {
+    background-image: url("./images/d6.png");
+}
+
+[id="4"] {
+    background-image: url("./images/d4.png");
+}
+
+#new-character {
+    background-image: url("./images/person.png");
+}
+
+.roll-advantage {
+    background-color: red;
+}
+
+#advantage {
+    background-image: url("./images/swords.png");
+}
+
+@media only screen and (min-device-width: 375px) and (min-device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (min-device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (min-device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
