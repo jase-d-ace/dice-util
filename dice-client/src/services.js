@@ -30,12 +30,12 @@ const checkSeven = (num) => num > 7;
  * @returns {boolean} returns true if it finds an acceptable array to push into a holder
  */
 const reRoll = (newArr) => {
-  let newStatLine = rollStatLine(6).sort((a, b) => a > b);
-  
-  //eslint-disable-next-line
-  const [least, ...highest] = newStatLine;
+    let newStatLine = rollStatLine(6).sort((a, b) => a > b);
 
-  return checkRolls(highest, newArr);
+    //eslint-disable-next-line
+    const [least, ...highest] = newStatLine;
+
+    return checkRolls(highest, newArr);
 };
 
 /**
@@ -46,14 +46,14 @@ const reRoll = (newArr) => {
  * @returns {boolean} returns true and pushes numbers into an array if they total more than 7, returns false otherwise
  */
 const checkRolls = (arr, holder) => {
-  const sum = arr.reduce((a, b) => a + b, 0);
+    const sum = arr.reduce((a, b) => a + b, 0);
 
-  if (checkSeven(sum)) {
-    holder.push(arr);
-    return true;
-  }
+    if (checkSeven(sum)) {
+        holder.push(arr);
+        return true;
+    }
 
-  return false;
+    return false;
 };
 
 /**
@@ -65,30 +65,30 @@ const checkRolls = (arr, holder) => {
  * @returns {array} results from rolling dice
  */
 export const rollTime = (times, cb, cbArg) => {
-  // empty array to hold values
-  let holder = [];
+    // empty array to hold values
+    let holder = [];
 
-  for (let i = 1 ; i <= times ; i++) {
-    // when rolling stats for a character (using statLine function), follow dnd character building rules of roll-4d6-drop-lowest
-    if (typeof(cb(cbArg)) == 'object') {
-      let threeVals = cb(cbArg).sort((a, b) => a > b);
+    for (let i = 1; i <= times; i++) {
+        // when rolling stats for a character (using statLine function), follow dnd character building rules of roll-4d6-drop-lowest
+        if (typeof (cb(cbArg)) == 'object') {
+            let threeVals = cb(cbArg).sort((a, b) => a > b);
 
-      // eslint-disable-next-line
-      const [least, ...rest] = threeVals;
-      
-      // check to see if this iteration holds a value greater than 7
-      // if this iteration is greater than 7, push it straight into the holder and move on
-      // if not, the function will not continue until it rolls 3 numbers that add to more than 7
-      let found = checkRolls(rest, holder);
+            // eslint-disable-next-line
+            const [least, ...rest] = threeVals;
 
-      while (!found) {
-        found = reRoll(holder);
-      }
-    } else { // when rolling at (dis)advantage, simply roll twice and return the results
-      holder.push(cb(cbArg));
+            // check to see if this iteration holds a value greater than 7
+            // if this iteration is greater than 7, push it straight into the holder and move on
+            // if not, the function will not continue until it rolls 3 numbers that add to more than 7
+            let found = checkRolls(rest, holder);
+
+            while (!found) {
+                found = reRoll(holder);
+            }
+        } else { // when rolling at (dis)advantage, simply roll twice and return the results
+            holder.push(cb(cbArg));
+        };
     };
-  };
-  return holder;
+    return holder;
 };
 
 /**
@@ -111,11 +111,11 @@ export const handleInputChange = (cb, val) => (_.debounce(() => cb(val), 70))() 
  * @param {object} state state object being updated
  */
 export const handleFormChange = (cb, e, state) => {
-  const { name, value } = e.target;
-  cb({
-    ...state,
-    [name]: value
-  })
+    const { name, value } = e.target;
+    cb({
+        ...state,
+        [name]: value
+    })
 }
 
 /**
@@ -128,16 +128,16 @@ export const handleFormChange = (cb, e, state) => {
  * @param {function} callback callback that processes incoming data from the api
  */
 export const handleFormSubmit = (e, query, callback) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  let wordsArray = query.toLowerCase().split(' ');
-  let cleanQuery = wordsArray.join('-');
+    let wordsArray = query.toLowerCase().split(' ');
+    let cleanQuery = wordsArray.join('-');
 
-  fetch(`https://api.open5e.com/monsters/${cleanQuery}/?format=json`)
-    .then( data => data.json() )
-    .then( json => callback(json) )
-    .catch( err => console.log(err) );
-  e.target.reset();
+    fetch(`https://api.open5e.com/monsters/${cleanQuery}/?format=json`)
+        .then(data => data.json())
+        .then(json => callback({...json, term: query}))
+        .catch(err => console.log(err));
+    e.target.reset();
 };
 
 /**
@@ -150,11 +150,11 @@ export const handleFormSubmit = (e, query, callback) => {
  * @param {object} cbArg contains information about action type and character
  */
 export const handleInitiativeOrder = (e, callback, cbArg) => {
-  if (e != null) {
-    e.preventDefault();
-    e.target.reset();
-  }
-  callback(cbArg);
+    if (e != null) {
+        e.preventDefault();
+        e.target.reset();
+    }
+    callback(cbArg);
 }
 
 /**
@@ -167,15 +167,15 @@ export const handleInitiativeOrder = (e, callback, cbArg) => {
  * @returns {object} new state returned after changes
  */
 export const reducer = (state, action) => {
-  const { type, character } = action;
-  switch(type) {
-    case "add": //adds character to initiative, returns sorted in descending order
-      const temp = [...state, {charName: character.charName, initiative: Number(character.initiative)}];
-      return _.sortBy(temp, 'initiative').reverse();
-    case "remove": // removes character from initiative order
-      const newState = _.reject(state, char => action.character.charName === char.charName);
-      return [...newState];
-    default: 
-      return state;
-  }
+    const { type, character } = action;
+    switch (type) {
+        case "add": //adds character to initiative, returns sorted in descending order
+            const temp = [...state, { charName: character.charName, initiative: Number(character.initiative) }];
+            return _.sortBy(temp, 'initiative').reverse();
+        case "remove": // removes character from initiative order
+            const newState = _.reject(state, char => action.character.charName === char.charName);
+            return [...newState];
+        default:
+            return state;
+    }
 }
