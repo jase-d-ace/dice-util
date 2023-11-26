@@ -50,6 +50,23 @@ a {
     height: 10em;
 }
 
+.initiatives-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.initiatives-form {
+    display: flex;
+    flex-direction: row;
+    input {
+        border-radius: 4px;
+        height: 3em;
+        width: 20em;
+        margin-left: 1em;
+    }
+}
+
 .search-page {
     display: flex;
     flex-direction: row;
@@ -107,6 +124,7 @@ a {
 .button-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 .dice-button {
