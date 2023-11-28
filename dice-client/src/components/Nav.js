@@ -9,13 +9,17 @@ export default function Nav() {
     return (
         <nav className="nav">
             <div className="mobile-nav" onClick={toggleHamburger}>
-                <Hamburger />
+                <Hamburger isHamburgerOpen={isHamburgerOpen} />
             </div>
-            <ul className={`navigation ${isHamburgerOpen ? "mobile-active" : ""}`}>
+            <ul className="navigation">
                 <span className="nav-site-header">Roll Some Dice</span>
-                <li className="link"><Link to="/">Dice</Link></li>
-                <li className="link"><Link to="/search">Monsters</Link></li>
-                <li className="link"><Link to="/initiatives">Initiatives</Link></li>
+                {
+                    [{destination: "/", name: "Dice"}, {destination: "/search", name: "Monsters"}, {destination: "/initiatives", name: "Inititatives"}].map(
+                        ({ destination, name }) => (
+                            <li className="link"><Link to={destination}>{name}</Link></li>
+                        )
+                    )
+                }
             </ul>
         </nav>
     );
