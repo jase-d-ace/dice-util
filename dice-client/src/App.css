@@ -214,6 +214,9 @@ a {
         display: flex;
         margin-left: 1em;
         padding-top: 1em;
+        width: 28em;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .hamburger-nav {

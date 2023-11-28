@@ -10,6 +10,7 @@ export default function Nav() {
         <nav className="nav">
             <div className="mobile-nav" onClick={toggleHamburger}>
                 <Hamburger isHamburgerOpen={isHamburgerOpen} />
+                <span class="nav-site-header">Roll Some Dice</span>
             </div>
             <ul className="navigation">
                 <span className="nav-site-header">Roll Some Dice</span>
