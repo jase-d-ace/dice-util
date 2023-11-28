@@ -5,11 +5,47 @@
 .nav {
     background-color: #141821;
     list-style-type: none;
-    height: 7vh;
+    height: 4em;
     display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
+    color: white;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.mobile-active {
+    display: none;
+}
+
+.navigation {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-site-header {
+    padding: 4px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.hamburger-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.burger-part {
+    width: 2em;
+    height: 0.5em;
+    background-color: white;
+    margin-bottom: 0.2em;
 }
 
 .button {
@@ -171,24 +207,70 @@ a {
     background-image: url("./images/swords.png");
 }
 
-@media only screen and (min-device-width: 375px) and (min-device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
-    .button-container {
-        display: flex;
-        flex-direction: column;
-    }
-}
 
-@media only screen and (min-device-width: 375px) and (min-device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
-    .button-container {
+@media (max-width: 767px) {
+    
+    .mobile-nav {
         display: flex;
-        flex-direction: column;
+        margin-left: 1em;
+        padding-top: 1em;
+        width: 28em;
+        flex-direction: row;
+        justify-content: space-between;
     }
-}
 
-@media only screen and (min-device-width: 414px) and (min-device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+    .hamburger-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-nav-dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+    }
+
+    .burger-one-open {
+        display: none;
+    }
+    
+    .burger-two-open {
+        transform: rotate(45deg) translateY(0.5em);
+    }
+
+    .burger-three-open {
+        transform: rotate(-45deg) translateY(-0.5em);
+    }
+    
+    .mobile-link { 
+        border: 1px solid white;
+        background: #141821;
+        width: 15em;
+        height: 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 1em;
+        
+        li {
+            font-weight: 900;
+            font-size: 24px;
+            margin: 0;
+        }
+    }
+
+    .navigation {
+        display: none;
+    }
+
     .button-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 }
 
